@@ -24,10 +24,12 @@ app.get('/beers', function (req, res, next) {
 });
 
 app.post('/beers', function(req, res, next) {
+  console.log(req.body)
   Beer.create(req.body, function(err, beer) {
     if (err) {
       return next(err);
     } else {
+      console.log(beer)
       return res.send(beer);
     }
   });
